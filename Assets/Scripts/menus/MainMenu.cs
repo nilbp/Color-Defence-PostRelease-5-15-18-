@@ -1,20 +1,48 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Advertisements;
 
 public class MainMenu : MonoBehaviour {
+
+    public GameObject loadingScreen;
+    public Slider slider;
 
     private void Start()
     {
         Time.timeScale = 1;
     }
 
+    public void LoadLevel(int SceneIndex)
+    {
+        StartCoroutine(LoadAsynchronously(SceneIndex));
+    }
+
+    IEnumerator LoadAsynchronously(int SceneIndex)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneIndex);
+
+        loadingScreen.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            float progres = Mathf.Clamp01(operation.progress / 0.9f);
+
+            slider.value = progres;
+
+            yield return null;
+        }
+    }
+
+
     public void ExitBtn(){
 
 		Application.Quit();
 
 	}
+    /*
 	public void OptionsBtn(string options){
 
 		SceneManager.LoadScene (options);
@@ -300,6 +328,7 @@ public class MainMenu : MonoBehaviour {
     {
         SceneManager.LoadScene(SelectorSabana);
     }
+    */
 
     //Funció d desbloquejar nivells
     public void EndLevel(int level)
