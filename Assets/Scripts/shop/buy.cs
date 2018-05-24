@@ -39,6 +39,10 @@ public class buy : MonoBehaviour {
     bool lifespray3;
     bool lifespray4;
 
+    public Image freqImage;
+    public Image costImage;
+    public Image lifeImage;
+
     public GameObject freqTub1;
     public GameObject freqTub2;
     public GameObject freqTub3;
@@ -174,8 +178,13 @@ public class buy : MonoBehaviour {
 
     public void activeFreqTub()
     {
+        freqImage.gameObject.SetActive(true);
+        costImage.gameObject.SetActive(false);
+        lifeImage.gameObject.SetActive(false);
+
         if (freqtub1 == false)
         {
+
             freqTub1.gameObject.SetActive(true);
             costTub1.gameObject.SetActive(false);
             costTub2.gameObject.SetActive(false);
@@ -191,6 +200,7 @@ public class buy : MonoBehaviour {
         if (freqtub1)
         {
             freqTub2.gameObject.SetActive(true);
+            freqTub1.gameObject.SetActive(false);
             costTub1.gameObject.SetActive(false);
             costTub2.gameObject.SetActive(false);
             costTub3.gameObject.SetActive(false);
@@ -205,6 +215,8 @@ public class buy : MonoBehaviour {
         if (freqtub2)
         {
             freqTub3.gameObject.SetActive(true);
+            freqTub1.gameObject.SetActive(false);
+            freqTub2.gameObject.SetActive(false);
             costTub1.gameObject.SetActive(false);
             costTub2.gameObject.SetActive(false);
             costTub3.gameObject.SetActive(false);
@@ -219,6 +231,9 @@ public class buy : MonoBehaviour {
         if (freqtub3)
         {
             freqTub4.gameObject.SetActive(true);
+            freqTub1.gameObject.SetActive(false);
+            freqTub2.gameObject.SetActive(false);
+            freqTub3.gameObject.SetActive(false);
             costTub1.gameObject.SetActive(false);
             costTub2.gameObject.SetActive(false);
             costTub3.gameObject.SetActive(false);
@@ -233,6 +248,10 @@ public class buy : MonoBehaviour {
         if (freqtub4)
         {
             freqTub5.gameObject.SetActive(true);
+            freqTub1.gameObject.SetActive(false);
+            freqTub2.gameObject.SetActive(false);
+            freqTub3.gameObject.SetActive(false);
+            freqTub4.gameObject.SetActive(false);
             costTub1.gameObject.SetActive(false);
             costTub2.gameObject.SetActive(false);
             costTub3.gameObject.SetActive(false);
@@ -297,6 +316,9 @@ public class buy : MonoBehaviour {
 
     public void activeCostTub()
     {
+        freqImage.gameObject.SetActive(false);
+        costImage.gameObject.SetActive(true);
+        lifeImage.gameObject.SetActive(false);
         if (costtub1 == false)
         {
             costTub1.gameObject.SetActive(true);
@@ -314,6 +336,7 @@ public class buy : MonoBehaviour {
         if (costtub1)
         {
             costTub2.gameObject.SetActive(true);
+            costTub1.gameObject.SetActive(false);
             freqTub1.gameObject.SetActive(false);
             freqTub2.gameObject.SetActive(false);
             freqTub3.gameObject.SetActive(false);
@@ -328,6 +351,8 @@ public class buy : MonoBehaviour {
         if (costtub2)
         {
             costTub3.gameObject.SetActive(true);
+            costTub1.gameObject.SetActive(false);
+            costTub2.gameObject.SetActive(false);
             freqTub1.gameObject.SetActive(false);
             freqTub2.gameObject.SetActive(false);
             freqTub3.gameObject.SetActive(false);
@@ -342,6 +367,9 @@ public class buy : MonoBehaviour {
         if (costtub3)
         {
             costTub4.gameObject.SetActive(true);
+            costTub1.gameObject.SetActive(false);
+            costTub2.gameObject.SetActive(false);
+            costTub3.gameObject.SetActive(false);
             freqTub1.gameObject.SetActive(false);
             freqTub2.gameObject.SetActive(false);
             freqTub3.gameObject.SetActive(false);
@@ -356,6 +384,10 @@ public class buy : MonoBehaviour {
         if (costtub4)
         {
             costTub5.gameObject.SetActive(true);
+            costTub1.gameObject.SetActive(false);
+            costTub2.gameObject.SetActive(false);
+            costTub3.gameObject.SetActive(false);
+            costTub4.gameObject.SetActive(false);
             freqTub1.gameObject.SetActive(false);
             freqTub2.gameObject.SetActive(false);
             freqTub3.gameObject.SetActive(false);
@@ -421,6 +453,10 @@ public class buy : MonoBehaviour {
 
     public void activeLifeTub()
     {
+        freqImage.gameObject.SetActive(false);
+        costImage.gameObject.SetActive(false);
+        lifeImage.gameObject.SetActive(true);
+
         if (lifetub1 == false)
         {
             lifeTub1.gameObject.SetActive(true);
@@ -438,6 +474,7 @@ public class buy : MonoBehaviour {
         if (lifetub1)
         {
             lifeTub2.gameObject.SetActive(true);
+            lifeTub1.gameObject.SetActive(false);
             freqTub1.gameObject.SetActive(false);
             freqTub2.gameObject.SetActive(false);
             freqTub3.gameObject.SetActive(false);
@@ -452,6 +489,8 @@ public class buy : MonoBehaviour {
         if (lifetub2)
         {
             lifeTub3.gameObject.SetActive(true);
+            lifeTub1.gameObject.SetActive(false);
+            lifeTub2.gameObject.SetActive(false);
             freqTub1.gameObject.SetActive(false);
             freqTub2.gameObject.SetActive(false);
             freqTub3.gameObject.SetActive(false);
@@ -466,6 +505,9 @@ public class buy : MonoBehaviour {
         if (lifetub3)
         {
             lifeTub4.gameObject.SetActive(true);
+            lifeTub1.gameObject.SetActive(false);
+            lifeTub2.gameObject.SetActive(false);
+            lifeTub3.gameObject.SetActive(false);
             freqTub1.gameObject.SetActive(false);
             freqTub2.gameObject.SetActive(false);
             freqTub3.gameObject.SetActive(false);
@@ -480,6 +522,10 @@ public class buy : MonoBehaviour {
         if (lifetub4)
         {
             lifeTub5.gameObject.SetActive(true);
+            lifeTub1.gameObject.SetActive(false);
+            lifeTub2.gameObject.SetActive(false);
+            lifeTub3.gameObject.SetActive(false);
+            lifeTub4.gameObject.SetActive(false);
             freqTub1.gameObject.SetActive(false);
             freqTub2.gameObject.SetActive(false);
             freqTub3.gameObject.SetActive(false);
@@ -544,6 +590,10 @@ public class buy : MonoBehaviour {
 
     public void activeFreqSpray()
     {
+        freqImage.gameObject.SetActive(true);
+        costImage.gameObject.SetActive(false);
+        lifeImage.gameObject.SetActive(false);
+
         if (freqspray1 == false)
         {
             freqSpray1.gameObject.SetActive(true);
@@ -561,6 +611,7 @@ public class buy : MonoBehaviour {
         if (freqspray1)
         {
             freqSpray2.gameObject.SetActive(true);
+            freqSpray1.gameObject.SetActive(false);
             costSpray1.gameObject.SetActive(false);
             costSpray2.gameObject.SetActive(false);
             costSpray3.gameObject.SetActive(false);
@@ -575,6 +626,8 @@ public class buy : MonoBehaviour {
         if (freqspray2)
         {
             freqSpray3.gameObject.SetActive(true);
+            freqSpray1.gameObject.SetActive(false);
+            freqSpray2.gameObject.SetActive(false);
             costSpray1.gameObject.SetActive(false);
             costSpray2.gameObject.SetActive(false);
             costSpray3.gameObject.SetActive(false);
@@ -589,6 +642,9 @@ public class buy : MonoBehaviour {
         if (freqspray3)
         {
             freqSpray4.gameObject.SetActive(true);
+            freqSpray1.gameObject.SetActive(false);
+            freqSpray2.gameObject.SetActive(false);
+            freqSpray3.gameObject.SetActive(false);
             costSpray1.gameObject.SetActive(false);
             costSpray2.gameObject.SetActive(false);
             costSpray3.gameObject.SetActive(false);
@@ -603,6 +659,10 @@ public class buy : MonoBehaviour {
         if (freqspray4)
         {
             freqSpray5.gameObject.SetActive(true);
+            freqSpray1.gameObject.SetActive(false);
+            freqSpray2.gameObject.SetActive(false);
+            freqSpray3.gameObject.SetActive(false);
+            freqSpray4.gameObject.SetActive(false);
             costSpray1.gameObject.SetActive(false);
             costSpray2.gameObject.SetActive(false);
             costSpray3.gameObject.SetActive(false);
@@ -667,6 +727,10 @@ public class buy : MonoBehaviour {
 
     public void activeCostSpray()
     {
+        freqImage.gameObject.SetActive(false);
+        costImage.gameObject.SetActive(true);
+        lifeImage.gameObject.SetActive(false);
+
         if (costspray1 == false)
         {
             costSpray1.gameObject.SetActive(true);
@@ -684,6 +748,7 @@ public class buy : MonoBehaviour {
         if (costspray1)
         {
             costSpray2.gameObject.SetActive(true);
+            costSpray1.gameObject.SetActive(false);
             freqSpray1.gameObject.SetActive(false);
             freqSpray2.gameObject.SetActive(false);
             freqSpray3.gameObject.SetActive(false);
@@ -698,6 +763,8 @@ public class buy : MonoBehaviour {
         if (costspray2)
         {
             costSpray3.gameObject.SetActive(true);
+            costSpray1.gameObject.SetActive(false);
+            costSpray2.gameObject.SetActive(false);
             freqSpray1.gameObject.SetActive(false);
             freqSpray2.gameObject.SetActive(false);
             freqSpray3.gameObject.SetActive(false);
@@ -712,6 +779,9 @@ public class buy : MonoBehaviour {
         if (costspray3)
         {
             costSpray4.gameObject.SetActive(true);
+            costSpray1.gameObject.SetActive(false);
+            costSpray2.gameObject.SetActive(false);
+            costSpray3.gameObject.SetActive(false);
             freqSpray1.gameObject.SetActive(false);
             freqSpray2.gameObject.SetActive(false);
             freqSpray3.gameObject.SetActive(false);
@@ -726,6 +796,10 @@ public class buy : MonoBehaviour {
         if (costspray4)
         {
             costSpray5.gameObject.SetActive(true);
+            costSpray1.gameObject.SetActive(false);
+            costSpray2.gameObject.SetActive(false);
+            costSpray3.gameObject.SetActive(false);
+            costSpray4.gameObject.SetActive(false);
             freqSpray1.gameObject.SetActive(false);
             freqSpray2.gameObject.SetActive(false);
             freqSpray3.gameObject.SetActive(false);
@@ -791,6 +865,9 @@ public class buy : MonoBehaviour {
 
     public void activeLifeSpray()
     {
+        freqImage.gameObject.SetActive(false);
+        costImage.gameObject.SetActive(false);
+        lifeImage.gameObject.SetActive(true);
         if (lifespray1 == false)
         {
             lifeSpray1.gameObject.SetActive(true);
@@ -808,6 +885,7 @@ public class buy : MonoBehaviour {
         if (lifespray1)
         {
             lifeSpray2.gameObject.SetActive(true);
+            lifeSpray1.gameObject.SetActive(false);
             freqSpray1.gameObject.SetActive(false);
             freqSpray2.gameObject.SetActive(false);
             freqSpray3.gameObject.SetActive(false);
@@ -822,6 +900,8 @@ public class buy : MonoBehaviour {
         if (lifespray2)
         {
             lifeSpray3.gameObject.SetActive(true);
+            lifeSpray1.gameObject.SetActive(false);
+            lifeSpray2.gameObject.SetActive(false);
             freqSpray1.gameObject.SetActive(false);
             freqSpray2.gameObject.SetActive(false);
             freqSpray3.gameObject.SetActive(false);
@@ -836,6 +916,9 @@ public class buy : MonoBehaviour {
         if (lifespray3)
         {
             lifeSpray4.gameObject.SetActive(true);
+            lifeSpray1.gameObject.SetActive(false);
+            lifeSpray2.gameObject.SetActive(false);
+            lifeSpray3.gameObject.SetActive(false);
             freqSpray1.gameObject.SetActive(false);
             freqSpray2.gameObject.SetActive(false);
             freqSpray3.gameObject.SetActive(false);
@@ -850,6 +933,10 @@ public class buy : MonoBehaviour {
         if (lifespray4)
         {
             lifeSpray5.gameObject.SetActive(true);
+            lifeSpray1.gameObject.SetActive(false);
+            lifeSpray2.gameObject.SetActive(false);
+            lifeSpray3.gameObject.SetActive(false);
+            lifeSpray4.gameObject.SetActive(false);
             freqSpray1.gameObject.SetActive(false);
             freqSpray2.gameObject.SetActive(false);
             freqSpray3.gameObject.SetActive(false);
@@ -868,6 +955,21 @@ public class buy : MonoBehaviour {
     {
         tubStats.gameObject.SetActive(true);
         sprayStats.gameObject.SetActive(false);
+        lifeSpray5.gameObject.SetActive(false);
+        lifeSpray1.gameObject.SetActive(false);
+        lifeSpray2.gameObject.SetActive(false);
+        lifeSpray3.gameObject.SetActive(false);
+        lifeSpray4.gameObject.SetActive(false);
+        freqSpray1.gameObject.SetActive(false);
+        freqSpray2.gameObject.SetActive(false);
+        freqSpray3.gameObject.SetActive(false);
+        freqSpray4.gameObject.SetActive(false);
+        freqSpray5.gameObject.SetActive(false);
+        costSpray1.gameObject.SetActive(false);
+        costSpray2.gameObject.SetActive(false);
+        costSpray3.gameObject.SetActive(false);
+        costSpray4.gameObject.SetActive(false);
+        costSpray5.gameObject.SetActive(false);
     }
 
     public void activeSpray()
