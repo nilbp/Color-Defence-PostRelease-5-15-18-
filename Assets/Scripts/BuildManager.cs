@@ -48,7 +48,7 @@ public class BuildManager : MonoBehaviour {
         }
 
         MoneyManager.pigment -= turretToBuild.cost;
-        tutoInstance.value -= turretToBuild.cost;
+        TutorialManager.value -= turretToBuild.cost;
         
 
         turretToBuild.IncrementNumberOfTurrets();

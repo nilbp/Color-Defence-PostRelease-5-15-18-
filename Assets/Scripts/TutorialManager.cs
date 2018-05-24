@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
+    
     public int levelNumber;
-    public int value; //aquesta variable s'anirà restant des de MouseManager i des de BuildManager
+    public static int value; //aquesta variable s'anirà restant des de MouseManager i des de BuildManager
     private int initialValue;
 
     public static bool gameOver;
@@ -66,14 +67,15 @@ public class TutorialManager : MonoBehaviour
 
     void SetLevelMark() //Guarda la nova mark score i el player prefs amb el nom del nivell
     {
-        int totalValue =  initialValue - MoneyManager.pigment + value ;
+        int totalValue = value + MoneyManager.pigment ;
+        Debug.Log(" value =  " + value);
+        Debug.Log(totalValue);
 
         if (totalValue < initialValue * 0.1)
         {
             if (PlayerPrefs.GetInt("" + levelNumber) < 1)
             {
                 PlayerPrefs.SetInt("" + levelNumber, 1);
-                PlayerPrefs.SetInt("MarkScore", (PlayerPrefs.GetInt("MarkScore")+1));
             }
         }
         else if (totalValue < initialValue * 0.2 && totalValue > initialValue * 0.1)
@@ -81,7 +83,6 @@ public class TutorialManager : MonoBehaviour
             if (PlayerPrefs.GetInt("" + levelNumber) < 2)
             {
                 PlayerPrefs.SetInt("" + levelNumber, 2);
-                PlayerPrefs.SetInt("MarkScore", (PlayerPrefs.GetInt("MarkScore") + 2));
             }
         }
         else if (totalValue < initialValue * 0.3 && totalValue > initialValue * 0.2)
@@ -89,7 +90,6 @@ public class TutorialManager : MonoBehaviour
             if (PlayerPrefs.GetInt("" + levelNumber) < 3)
             {
                 PlayerPrefs.SetInt("" + levelNumber, 3);
-                PlayerPrefs.SetInt("MarkScore", (PlayerPrefs.GetInt("MarkScore") + 3));
             }
         }
         else if (totalValue < initialValue * 0.4 && totalValue < initialValue * 0.3)
@@ -97,7 +97,6 @@ public class TutorialManager : MonoBehaviour
             if (PlayerPrefs.GetInt("" + levelNumber) < 4)
             {
                 PlayerPrefs.SetInt("" + levelNumber, 4);
-                PlayerPrefs.SetInt("MarkScore", (PlayerPrefs.GetInt("MarkScore") + 4));
             }
         }
         else if (totalValue < initialValue * 0.5 && totalValue < initialValue * 0.4)
@@ -105,7 +104,6 @@ public class TutorialManager : MonoBehaviour
             if (PlayerPrefs.GetInt("" + levelNumber) < 5)
             {
                 PlayerPrefs.SetInt("" + levelNumber, 5);
-                PlayerPrefs.SetInt("MarkScore", (PlayerPrefs.GetInt("MarkScore") + 5));
             }
         }
         else if (totalValue >= initialValue * 0.6)
@@ -113,7 +111,6 @@ public class TutorialManager : MonoBehaviour
             if (PlayerPrefs.GetInt("" + levelNumber) < 7)
             {
                 PlayerPrefs.SetInt("" + levelNumber, 7);
-                PlayerPrefs.SetInt("MarkScore", (PlayerPrefs.GetInt("MarkScore") + 7));
             }
         }
     }
@@ -157,6 +154,7 @@ public class TutorialManager : MonoBehaviour
     {
         Time.timeScale = 0;
     }
+
     public void ResumeGame()
     {
         Time.timeScale = 1;

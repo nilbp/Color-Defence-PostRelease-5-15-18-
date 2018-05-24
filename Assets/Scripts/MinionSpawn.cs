@@ -195,10 +195,12 @@ public class MinionSpawn : MonoBehaviour
         for (int i = 0; i < waves.Length; i++)
             for (int j = 0; j < waves[i].minion.Length; j++)
             { 
-                value += waves[i].minion[j].cyanQuantity + waves[i].minion[j].cyanQuantity + waves[i].minion[j].cyanQuantity;
+                value += (waves[i].minion[j].cyanQuantity + waves[i].minion[j].magentaQuantity + waves[i].minion[j].yellowQuantity);
             }
-        GetComponent<TutorialManager>().value = (value * 15) + START_PIGMENT; //15 és els diners que et dona cada component quan mates el minion 
+        TutorialManager.value = (value * 15) + START_PIGMENT; //15 és els diners que et dona cada component quan mates el minion 
         GetComponent<TutorialManager>().levelNumber = levelNumber + 1;
+
+        Debug.Log(TutorialManager.value);
         
     }
 

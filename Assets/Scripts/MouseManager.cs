@@ -87,7 +87,7 @@ public class MouseManager : MonoBehaviour
                             hexInfoObject.HexColor = 'C';
                             hexInfoObject.SetColorTo(CyanTex);
                             MoneyManager.pigment -= colorCost;
-                            tutoInstance.value -= colorCost;
+                            TutorialManager.value -= colorCost;
 
                         }
                         else if (ColorInHand == 'M' && hexInfoObject.HexColor != 'M')
@@ -96,7 +96,7 @@ public class MouseManager : MonoBehaviour
                             hexInfoObject.HexColor = 'M';
                             hexInfoObject.SetColorTo(MagentaTex);
                             MoneyManager.pigment -= colorCost;
-                            tutoInstance.value -= colorCost;
+                            TutorialManager.value -= colorCost;
 
                         }
                         else if (ColorInHand == 'Y' && hexInfoObject.HexColor != 'Y')
@@ -105,7 +105,7 @@ public class MouseManager : MonoBehaviour
                             hexInfoObject.HexColor = 'Y';
                             hexInfoObject.SetColorTo(YellowTex);
                             MoneyManager.pigment -= colorCost;
-                            tutoInstance.value -= colorCost;
+                            TutorialManager.value -= colorCost;
                         }
                     }
                 }

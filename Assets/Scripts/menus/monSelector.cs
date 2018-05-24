@@ -6,18 +6,13 @@ using UnityEngine.UI;
 
 public class monSelector : MonoBehaviour {
 
-	//public int level; 
-	public static Levels[] levelButtons;
-    public Image[] locks;
-    private int levelReached;
-
-    public Image levBosc;
-    public Image levIce;
+    const int LEVELS = 30;
+    public Text worldMark;
+    private int totalMark;
 
     void Start () 
 	{
-        //PlayerPrefs.DeleteAll();
-        UpdateValue();
+        UpdateWorldMark();
         /*levelReached = PlayerPrefs.GetInt ("levelReached");
 
         for (int i = 0; i < levelButtons.Length; i++) {
@@ -38,15 +33,22 @@ public class monSelector : MonoBehaviour {
         }*/
     }
 
-    void UpdateValue()
+    void UpdateWorldMark()
     {
+        for (int i = 0; i < LEVELS; ++i)
+        {
+            totalMark += PlayerPrefs.GetInt("" + i);
+        }
 
+        PlayerPrefs.SetInt("MarkScore", totalMark);
+
+        worldMark.text = "TOTAL MARK:  " + totalMark;
     }
 
 
     public void ResetLevelProgress () 
 	{
-        PlayerPrefs.SetInt("levelReached", 30);
+        PlayerPrefs.DeleteAll();
     }
 }
 
