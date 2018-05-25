@@ -10,8 +10,19 @@ public class monSelector : MonoBehaviour {
     public Text worldMark;
     private int totalMark;
 
+    public Sprite A_Plus;
+    public Sprite A;
+    public Sprite B;
+    public Sprite C;
+    public Sprite D;
+    public Sprite E;
+
+    public static monSelector instance;
+
     void Start () 
 	{
+        instance = this;
+
         UpdateWorldMark();
         /*levelReached = PlayerPrefs.GetInt ("levelReached");
 
@@ -33,6 +44,26 @@ public class monSelector : MonoBehaviour {
         }*/
     }
 
+    public Sprite GetMarkSprite(int levelMark)
+    {
+        switch (levelMark)
+        {
+            case 1:
+                return E;
+            case 2:
+                return D;
+            case 3:
+                return C;
+            case 4:
+                return B;
+            case 5:
+                return A;
+            case 7:
+                return A_Plus;
+        }
+        return null;
+    }
+
     void UpdateWorldMark()
     {
         for (int i = 0; i < LEVELS; ++i)
@@ -42,9 +73,8 @@ public class monSelector : MonoBehaviour {
 
         PlayerPrefs.SetInt("MarkScore", totalMark);
 
-        worldMark.text = "TOTAL MARK:  " + totalMark;
+        worldMark.text = "TOTAL MARK: " + totalMark;
     }
-
 
     public void ResetLevelProgress () 
 	{

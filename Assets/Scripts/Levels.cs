@@ -8,34 +8,49 @@ public class Levels : MonoBehaviour {
 
     public GameObject locked;
     private int levelMark;
-    public Text levelMarkText;
+    public Image levelMarkImage;
+    public Image ExamBackground;
+
     public Text unlockScoreText;
     public int markScoreToUnlock;
 
+    private monSelector monSelectorInstance;
+
     void Start()
-    {       
+    {
+        monSelectorInstance = monSelector.instance;
         UnlockLevel();
     }
 
     void UnlockLevel()
     {
         levelMark = PlayerPrefs.GetInt(gameObject.name);
-        levelMarkText.text = "" + levelMark;
 
-        levelMarkText.gameObject.SetActive(false);
+        levelMarkImage.gameObject.SetActive(false);
+        ExamBackground.gameObject.SetActive(false);
 
         if (unlockScoreText != null)
             unlockScoreText.text = "" + markScoreToUnlock;
 
         if (PlayerPrefs.GetInt("MarkScore") < markScoreToUnlock) return; //si passa la condició està unlocked
-     
+
+        GetComponent<Button>().interactable = true;
         locked.SetActive(false);
 
         if(unlockScoreText != null)
             unlockScoreText.gameObject.SetActive(false); //es desactiva el score que fa falta per desbloquejar el nivell perquè ja està desbloquejat
 
-        levelMarkText.gameObject.SetActive(true); //s'activa el score que tenim
-        GetComponent<Button>().interactable = true;
+        if (monSelectorInstance.GetMarkSprite(levelMark) == null)
+        {
+            levelMarkImage.gameObject.SetActive(false);
+            return;
+        }
+         
+        levelMarkImage.sprite = monSelectorInstance.GetMarkSprite(levelMark);//posa el sprite en funció de la nota 
+       
+        levelMarkImage.gameObject.SetActive(true); //s'activa el score que tenim
+        ExamBackground.gameObject.SetActive(true);
+
     }
 
 }
