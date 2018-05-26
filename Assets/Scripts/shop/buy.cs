@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class buy : MonoBehaviour {
 
-	private int money = 10000000;
+    public int money;
 
     private int moneyy;
+
+    public Text moneyText;
 
     bool freqtub1;
     bool freqtub2;
@@ -88,10 +90,12 @@ public class buy : MonoBehaviour {
 
     private void Start()
     {
-        freqtub1=false;
-        freqtub2=false;
-        freqtub3=false;
-        freqtub4=false;
+        money = PlayerPrefs.GetInt("Money");
+
+        freqtub1 = false;
+        freqtub2 = false;
+        freqtub3 = false;
+        freqtub4 = false;
 
         costtub1 = false;
         costtub2 = false;
@@ -121,10 +125,10 @@ public class buy : MonoBehaviour {
         sprayActive.interactable = true;
         tubActive.interactable = true;
     }
-    void Update()
+
+    private void Update()
     {
-       // Debug.Log(money);
-        moneyy = PlayerPrefs.GetInt("money");
+        moneyText.text = "" + money;
     }
 
     public void buytubF1()
@@ -133,7 +137,9 @@ public class buy : MonoBehaviour {
         {
             freqtub1 = true;
             //augment freq1
-            Debug.Log("freq1");
+            PlayerPrefs.SetInt("Tub_Freq", 1);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 100);
+            money -= 100;
         }
     }
 
@@ -144,35 +150,49 @@ public class buy : MonoBehaviour {
             freqtub2 = true;
             //augment freq2
             Debug.Log("freq2");
+            PlayerPrefs.SetInt("Tub_Freq", 2);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 200);
+            money -= 200;
         }
     }
 
     public void buytubF3()
     {
-        if (freqtub2 && money > 200)
+        if (freqtub2 && money > 500)
         {
             freqtub3 = true;
             //augment freq2
             Debug.Log("freq3");
+            PlayerPrefs.SetInt("Tub_Freq", 3);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 500);
+            money -= 500;
+
         }
     }
 
     public void buytubF4()
     {
-        if (freqtub3 && money > 200)
+        if (freqtub3 && money > 1000)
         {
             freqtub4 = true;
             //augment freq4
             Debug.Log("freq4");
+            PlayerPrefs.SetInt("Tub_Freq", 4);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 1000);
+            money -= 1000;
+
         }
     }
 
     public void buytubF5()
     {
-        if (freqtub4 && money > 200)
+        if (freqtub4 && money > 2000)
         {
             //augment freq5
             Debug.Log("freq5");
+            PlayerPrefs.SetInt("Tub_Freq", 5);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 2000);
+            money -= 2000;
         }
     }
 
@@ -272,6 +292,9 @@ public class buy : MonoBehaviour {
             costtub1 = true;
             //augment cost1
             Debug.Log("cost1");
+            PlayerPrefs.SetInt("Tub_Cost", 1);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 100);
+            money -= 100;
         }
     }
 
@@ -282,35 +305,47 @@ public class buy : MonoBehaviour {
             costtub2 = true;
             //augment cost2
             Debug.Log("cost2");
+            PlayerPrefs.SetInt("Tub_Cost", 2);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 200);
+            money -= 200;
         }
     }
 
     public void buytubC3()
     {
-        if (costtub2 && money > 200)
+        if (costtub2 && money > 500)
         {
             costtub3 = true;
             //augment cost3
             Debug.Log("cost3");
+            PlayerPrefs.SetInt("Tub_Cost", 3);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 500);
+            money -= 500;
         }
     }
 
     public void buytubC4()
     {
-        if (costtub3 && money > 200)
+        if (costtub3 && money > 1000)
         {
             costtub4 = true;
             //augment cost4
             Debug.Log("cost4");
+            PlayerPrefs.SetInt("Tub_Cost", 4);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 1000);
+            money -= 1000;
         }
     }
 
     public void buytubC5()
     {
-        if (costtub4 && money > 200)
+        if (costtub4 && money > 2000)
         {
             //augmentcost5
             Debug.Log("cost5");
+            PlayerPrefs.SetInt("Tub_Cost", 5);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 2000);
+            money -= 2000;
         }
     }
 
@@ -401,6 +436,7 @@ public class buy : MonoBehaviour {
         }
     }
 
+
     public void buytubL1()
     {
         if (money > 100)
@@ -408,6 +444,10 @@ public class buy : MonoBehaviour {
             lifetub1 = true;
             //augment life1
             Debug.Log("life1");
+
+            PlayerPrefs.SetInt("Tub_Life", 1);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 100);
+            money -= 100;
         }
     }
 
@@ -418,35 +458,47 @@ public class buy : MonoBehaviour {
             lifetub2 = true;
             //augment life2
             Debug.Log("life2");
+            PlayerPrefs.SetInt("Tub_Life", 2);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 200);
+            money -= 200;
         }
     }
 
     public void buytubL3()
     {
-        if (lifetub2 && money > 200)
+        if (lifetub2 && money > 500)
         {
             lifetub3 = true;
             //augment life3
             Debug.Log("life3");
+            PlayerPrefs.SetInt("Tub_Life", 3);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 500);
+            money -= 500;
         }
     }
 
     public void buytubL4()
     {
-        if (lifetub3 && money > 200)
+        if (lifetub3 && money > 1000)
         {
             lifetub4 = true;
             //augment life4
             Debug.Log("life4");
+            PlayerPrefs.SetInt("Tub_Life", 4);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 1000);
+            money -= 1000;
         }
     }
 
     public void buytubL5()
     {
-        if (lifetub4 && money > 200)
+        if (lifetub4 && money > 2000)
         {
             //augment life5
             Debug.Log("life5");
+            PlayerPrefs.SetInt("Tub_Life", 5);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 2000);
+            money -= 2000;
         }
     }
 
@@ -546,6 +598,9 @@ public class buy : MonoBehaviour {
             freqspray1 = true;
             //augment freq1
             Debug.Log("freq1");
+            PlayerPrefs.SetInt("Sprai_Freq", 1);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 100);
+            money -= 100;
         }
     }
 
@@ -556,35 +611,47 @@ public class buy : MonoBehaviour {
             freqspray2 = true;
             //augment freq2
             Debug.Log("freq2");
+            PlayerPrefs.SetInt("Sprai_Freq", 2);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 200);
+            money -= 200;
         }
     }
 
     public void buysprayF3()
     {
-        if (freqspray2 && money > 200)
+        if (freqspray2 && money > 500)
         {
             freqspray3 = true;
             //augment freq2
             Debug.Log("freq3");
+            PlayerPrefs.SetInt("Sprai_Freq", 3);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 500);
+            money -= 500;
         }
     }
 
     public void buysprayF4()
     {
-        if (freqspray3 && money > 200)
+        if (freqspray3 && money > 1000)
         {
             freqspray4 = true;
             //augment freq4
             Debug.Log("freq4");
+            PlayerPrefs.SetInt("Sprai_Freq", 4);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 1000);
+            money -= 1000;
         }
     }
 
     public void buysprayF5()
     {
-        if (freqspray4 && money > 200)
+        if (freqspray4 && money > 2000)
         {
             //augment freq5
             Debug.Log("freq5");
+            PlayerPrefs.SetInt("Sprai_Freq", 5);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 2000);
+            money -= 2000;
         }
     }
 
@@ -683,6 +750,9 @@ public class buy : MonoBehaviour {
             costspray1 = true;
             //augment cost1
             Debug.Log("cost1");
+            PlayerPrefs.SetInt("Sprai_Cost", 1);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 100);
+            money -= 100;
         }
     }
 
@@ -693,35 +763,47 @@ public class buy : MonoBehaviour {
             costspray2 = true;
             //augment cost2
             Debug.Log("cost2");
+            PlayerPrefs.SetInt("Sprai_Cost", 2);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 200);
+            money -= 200;
         }
     }
 
     public void buysprayC3()
     {
-        if (costspray2 && money > 200)
+        if (costspray2 && money > 500)
         {
             costspray3 = true;
             //augment cost3
             Debug.Log("cost3");
+            PlayerPrefs.SetInt("Sprai_Cost", 3);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 500);
+            money -= 500;
         }
     }
 
     public void buysprayC4()
     {
-        if (costspray3 && money > 200)
+        if (costspray3 && money > 1000)
         {
             costspray4 = true;
             //augment cost4
             Debug.Log("cost4");
+            PlayerPrefs.SetInt("Sprai_Cost", 4);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 1000);
+            money -= 1000;
         }
     }
 
     public void buysprayC5()
     {
-        if (costspray4 && money > 200)
+        if (costspray4 && money > 2000)
         {
             //augmentcost5
             Debug.Log("cost5");
+            PlayerPrefs.SetInt("Sprai_Cost", 5);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 2000);
+            money -= 2000;
         }
     }
 
@@ -820,6 +902,9 @@ public class buy : MonoBehaviour {
             lifespray1 = true;
             //augment life1
             Debug.Log("life1");
+            PlayerPrefs.SetInt("Sprai_Life", 1);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 100);
+            money -= 100;
         }
     }
 
@@ -830,38 +915,49 @@ public class buy : MonoBehaviour {
             lifespray2 = true;
             //augment life2
             Debug.Log("life2");
+            PlayerPrefs.SetInt("Sprai_Life", 2);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 200);
+            money -= 200;
         }
     }
 
     public void buysprayL3()
     {
-        if (lifespray2 && money > 200)
+        if (lifespray2 && money > 500)
         {
             lifespray3 = true;
             //augment life3
             Debug.Log("life3");
+            PlayerPrefs.SetInt("Sprai_Life", 3);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 500);
+            money -= 500;
         }
     }
 
     public void buysprayL4()
     {
-        if (lifespray3 && money > 200)
+        if (lifespray3 && money > 1000)
         {
             lifespray4 = true;
             //augment life4
             Debug.Log("life4");
+            PlayerPrefs.SetInt("Sprai_Life", 4);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 1000);
+            money -= 1000;
         }
     }
 
     public void buysprayL5()
     {
-        if (lifespray4 && money > 200)
+        if (lifespray4 && money > 2000)
         {
             //augment life5
             Debug.Log("life5");
+            PlayerPrefs.SetInt("Sprai_Life", 5);
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 2000);
+            money -= 2000;
         }
     }
-
 
     public void activeLifeSpray()
     {
@@ -950,7 +1046,6 @@ public class buy : MonoBehaviour {
         }
     }
     
-
     public void activeTub()
     {
         tubStats.gameObject.SetActive(true);
