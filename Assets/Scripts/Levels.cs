@@ -26,13 +26,15 @@ public class Levels : MonoBehaviour {
     {
         levelMark = PlayerPrefs.GetInt(gameObject.name);
 
+        int totalMark = PlayerPrefs.GetInt("MarkScore");
+
         levelMarkImage.gameObject.SetActive(false);
         ExamBackground.gameObject.SetActive(false);
 
         if (unlockScoreText != null)
-            unlockScoreText.text = "" + markScoreToUnlock;
+            unlockScoreText.text = totalMark + "/" + markScoreToUnlock;
 
-        if (PlayerPrefs.GetInt("MarkScore") < markScoreToUnlock) return; //si passa la condició està unlocked
+        if (totalMark < markScoreToUnlock) return; //si passa la condició està unlocked
 
         GetComponent<Button>().interactable = true;
         locked.SetActive(false);
