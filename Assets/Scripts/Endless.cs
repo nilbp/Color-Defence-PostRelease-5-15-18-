@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Endless : MonoBehaviour {
+public class endless : MonoBehaviour {
 
     public int levelNumber;
 
@@ -29,7 +29,7 @@ public class Endless : MonoBehaviour {
 
     TutorialManager tutoInstance;
 
-    public static Endless instance;
+    public static endless instance;
     private ColorHUD colorHudInstance;
 
     //MINION PREFABS
@@ -47,19 +47,15 @@ public class Endless : MonoBehaviour {
 
     public float EndCounter;
 
-    [System.Serializable]
     public enum ColorComplexity { basic, medium, advanced, random };
 
-    [System.Serializable]
     public enum Behaviour { move_Forward, mov_S, move_Random };
 
-    //STRUCTS PEL LEVEL DESIGN 
-    [System.Serializable]
     public class Minion
     {
         public int size;
 
-        //0.2 ÉS VELOCITAT RAONABLE
+        //0.6 ÉS VELOCITAT RAONABLE
         public float speed;
 
         //1 = 1 color. 2 = 2 colors, 3 = 3 colors, 4 = random 
@@ -82,13 +78,10 @@ public class Endless : MonoBehaviour {
 
     }
 
-    //VARIABLES PER EL LEVEL DESIGN
-    [Header("LEVEL DESIGN TOOL")]
-    private Waves[] waves;
-
 
     void Start()
     {
+ 
         gameOver = false;
 
         MoneyManager.pigment = START_PIGMENT;
@@ -96,16 +89,13 @@ public class Endless : MonoBehaviour {
         instance = this;
         colorHudInstance = ColorHUD.instance;
 
-        StartCoroutine(SpawnManager1());
+        StartCoroutine(Endless());
+ 
         firstSpawnPoint = 0;
         lastSpawnPoint = Map.height;
         tutoInstance = GetComponent<TutorialManager>();
 
         EndCounter += Time.deltaTime;
-
-        tutoInstance.numWaves = waves.Length; //per que el tutorial manager sapiga el numero de waves que hi ha
-
-        lastMinionDead = true;
 
         /* waveSecondsText = GameObject.FindObjectsOfTypeAll("WaveCountDownSeconds");
          waveText = waveSecondsText.GetComponent<Text>();
@@ -113,158 +103,9 @@ public class Endless : MonoBehaviour {
          passWave = GameObject.Find("PassWaveCountdownSeconds");*/
     }
 
-    IEnumerator SpawnManager1()
-    {
-        for (int i = 0; i < waves.Length; i++)
-        {
-            //Time.timeScale = 1;
-
-            waves[i].startTime = START_TIME; // start time constant a totes les waves 11 secs
-
-            while (lastMinionDead == false) { yield return new WaitForSeconds(1f); }
-
-            waveSecondsCounter = (int)waves[i].startTime;
-
-            //colorHudInstance.ActiveCounter();
-            if (waveSecondsText != null) waveSecondsText.gameObject.SetActive(true);
-            passWave.gameObject.SetActive(true);
-            waveSecondsText.color = Color.black;
-
-            while (waveSecondsCounter > 0)
-            {
-                waveSecondsCounter--;
-                waveSecondsText.text = waveSecondsCounter + " S";
-
-                //colorHudInstance.UpdateCounter(waveSecondsCounter + " S");
-
-                yield return new WaitForSeconds(1f);
-            }
-
-            waveSecondsText.gameObject.SetActive(false);
-            passWave.gameObject.SetActive(false);
-            //colorHudInstance.DesactiveCounter();
-            lastMinionDead = false;
-
-            //WaveCountDown(i);
-
-            for (int j = 0; j < waves[i].minion.Length; j++)
-            {
-                yield return new WaitForSeconds(waves[i].spawnRatio);
-
-                if (j + 1 == waves[i].minion.Length)
-                {
-                    switch (waves[i].minion[j].behaviour)
-                    {
-                        case (Behaviour)0:
-                            SpawnMinionBehaviour1(waves[i].minion[j], true);
-                            break;
-                        case (Behaviour)1:
-                            SpawnMinionBehaviour2(waves[i].minion[j], true);
-                            break;
-                        case (Behaviour)2:
-                            SpawnMinionBehaviour3(waves[i].minion[j], true);
-                            break;
-                        default:
-                            SpawnMinionBehaviour1(waves[i].minion[j], true);
-                            break;
-                    }
-                }
-                else
-                {
-                    switch (waves[i].minion[j].behaviour)
-                    {
-
-                        case (Behaviour)0:
-                            SpawnMinionBehaviour1(waves[i].minion[j], false);
-                            break;
-                        case (Behaviour)1:
-                            SpawnMinionBehaviour2(waves[i].minion[j], false);
-                            break;
-                        case (Behaviour)2:
-                            SpawnMinionBehaviour3(waves[i].minion[j], false);
-                            break;
-                        default:
-                            SpawnMinionBehaviour1(waves[i].minion[j], false);
-                            break;
-                    }
-                }
-            }
-        }
-    }
-
     int RandomInt(int from, int to)
     {
         return Random.Range(from, to);
-    }
-
-    void BuildMinion(Minion minion)
-    {
-
-        int acum;
-        int counter;
-        int aux;
-
-
-
-        switch (minion.colorComplexity)
-        {
-            case ColorComplexity.basic:
-                acum = RandomInt(1, 4);
-                if (acum == 1)
-                    cyanQuantity = minion.size;
-                else if (acum == 2)
-                    magentaQuantity = minion.size;
-                else
-                    yellowQuantity = minion.size;
-                break;
-            case ColorComplexity.medium:
-                counter = RandomInt(1, minion.size);
-                acum = RandomInt(1, 4);
-                if (acum == 1)
-                {
-                    cyanQuantity = counter;
-                    magentaQuantity = minion.size - counter;
-                }
-                else if (acum == 2)
-                {
-                    yellowQuantity = counter;
-                    cyanQuantity = minion.size - counter;
-                }
-                else
-                {
-                    magentaQuantity = counter;
-                    yellowQuantity = minion.size - counter;
-                }
-                break;
-            case ColorComplexity.advanced:
-                counter = RandomInt(1, minion.size - 1);
-                aux = RandomInt(1, minion.size - counter);
-
-                acum = RandomInt(1, 4);
-                if (acum == 1)
-                {
-                    cyanQuantity = counter;
-                    magentaQuantity = aux;
-                    yellowQuantity = minion.size - (aux + counter);
-                }
-                else if (acum == 2)
-                {
-                    yellowQuantity = counter;
-                    cyanQuantity = aux;
-                    magentaQuantity = minion.size - (aux + counter);
-                }
-                else
-                {
-                    magentaQuantity = counter;
-                    yellowQuantity = aux;
-                    cyanQuantity = minion.size - (aux + counter);
-                }
-                break;
-            case (ColorComplexity)3:
-                minion.colorComplexity = (ColorComplexity)RandomInt(1, 3);
-                BuildMinion(minion);
-                break;
-        }
     }
 
     //FORWARD MOVE
@@ -361,11 +202,8 @@ public class Endless : MonoBehaviour {
         Instantiate(minion3, spawn1.transform.position, minion3.transform.rotation);
 
     }
-
-    void endless(Minion minion)
-    { 
-        minion.colorComplexity = 0;
-
+    void buildMinion(Minion minion)
+    {
         int acum;
         int counter;
         int aux;
@@ -426,22 +264,35 @@ public class Endless : MonoBehaviour {
                 break;
             case (ColorComplexity)3:
                 minion.colorComplexity = (ColorComplexity)RandomInt(1, 3);
-                BuildMinion(minion);
+                buildMinion(minion);
                 break;
         }
-    
-        
+
+    }
+
+    IEnumerator Endless()
+    {
+        Minion minion;
+        minion.colorComplexity = 0;
+
+
         while (!gameOver && EndCounter<60)
         {
-           minion.behaviour=(Behaviour)RandomInt(1, 1);
+            buildMinion(minion);
+            minion.behaviour=(Behaviour)RandomInt(1, 1);
             minion.colorComplexity = ColorComplexity.basic;
             minion.size = 1;
+            minion.speed = 0.5f;
+            Debug.Log("1");
         }
-        while (!gameOver && EndCounter < 120)
+        while (!gameOver && EndCounter>=60 && EndCounter < 120)
         {
+            buildMinion(minion);
             minion.behaviour = (Behaviour)RandomInt(1, 2);
             minion.colorComplexity = ColorComplexity.medium;
             minion.size = 2;
+            minion.speed = 0.7f;
+            Debug.Log("2");
         }
     }
 
