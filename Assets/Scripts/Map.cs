@@ -62,7 +62,7 @@ public class Map : MonoBehaviour {
     {
         if (gameObject.name == "HexMap(Big)")
         {
-            width = 11; height = 6;
+            width = 18; height = 10;
         }
     }
 
