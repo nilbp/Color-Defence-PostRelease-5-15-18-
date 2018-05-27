@@ -197,6 +197,7 @@ public class MinionMovementS : MonoBehaviour {
         FindObjectOfType<AudioManager>().Play("Clinc3");
         MoneyManager.pigment += minionValue;
 		MoneyManager.Combo(transform, minionValue / 15);
+        TutorialManager.darkPigment += minionValue/15;
 		Destroy(gameObject);
 
 

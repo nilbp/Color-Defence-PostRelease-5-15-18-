@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
-    
+    public static int darkPigment;
+    public static int comboBonus;
+    public int gradeBonus;
+
     public int levelNumber;
     public static int value; //aquesta variable s'anirà restant des de MouseManager i des de BuildManager
     private int initialValue;
@@ -77,6 +80,7 @@ public class TutorialManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("" + levelNumber, 1);
             }
+            gradeBonus = 1;
         }
         else if (totalValue < initialValue * 0.2 && totalValue > initialValue * 0.1)
         {
@@ -84,6 +88,7 @@ public class TutorialManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("" + levelNumber, 2);
             }
+            gradeBonus = 2;
         }
         else if (totalValue < initialValue * 0.3 && totalValue > initialValue * 0.2)
         {
@@ -91,6 +96,7 @@ public class TutorialManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("" + levelNumber, 3);
             }
+            gradeBonus = 3;
         }
         else if (totalValue < initialValue * 0.4 && totalValue < initialValue * 0.3)
         {
@@ -98,6 +104,7 @@ public class TutorialManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("" + levelNumber, 4);
             }
+            gradeBonus = 4;
         }
         else if (totalValue < initialValue * 0.5 && totalValue < initialValue * 0.4)
         {
@@ -105,6 +112,7 @@ public class TutorialManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("" + levelNumber, 5);
             }
+            gradeBonus = 5;
         }
         else if (totalValue >= initialValue * 0.6)
         {
@@ -112,6 +120,7 @@ public class TutorialManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("" + levelNumber, 7);
             }
+            gradeBonus = 7;
         }
     }
 

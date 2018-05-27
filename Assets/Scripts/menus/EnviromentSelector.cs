@@ -36,6 +36,7 @@ public class EnviromentSelector : MonoBehaviour
 
     void Start()
     {
+        //PlayerPrefs.SetInt("MarkScore", 150);
         GetEnviromentsValue();
         SetImagesAndText();
         ManageLocks();

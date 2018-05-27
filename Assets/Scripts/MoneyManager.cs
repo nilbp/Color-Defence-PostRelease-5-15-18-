@@ -102,6 +102,7 @@ public class MoneyManager : MonoBehaviour {
             instance.transform.position = screenPosition;
             combo1Treigger = true;
             pigment += 15;
+            TutorialManager.comboBonus += 1;
 
         }
         else if (combo >= 6 && combo < 10 && !combo2Treigger)
@@ -112,6 +113,7 @@ public class MoneyManager : MonoBehaviour {
             instance.transform.position = screenPosition;
             combo2Treigger = true;
             pigment += 30;
+            TutorialManager.comboBonus += 2;
         }
         else if (combo >= 10 && combo < 18 && !combo3Treigger)
         {
@@ -121,6 +123,7 @@ public class MoneyManager : MonoBehaviour {
             instance.transform.position = screenPosition;
             combo3Treigger = true;
             pigment += 50;
+            TutorialManager.comboBonus += 5;
         }
         else if (combo >= 18 && combo < 30 && !combo4Treigger)
         {
@@ -130,6 +133,7 @@ public class MoneyManager : MonoBehaviour {
             instance.transform.position = screenPosition;
             combo4Treigger = true;
             pigment += 80;
+            TutorialManager.comboBonus += 10;
         }
         else if (combo >= 30 && !combo5Treigger)
         {
@@ -139,6 +143,7 @@ public class MoneyManager : MonoBehaviour {
             instance.transform.position = screenPosition;
             combo5Treigger = true;
             pigment += 150;
+            TutorialManager.comboBonus += 20;
         }
 		contador = 3;
 	}

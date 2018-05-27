@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class SpraiScript : MonoBehaviour {
 
-    private float life = 5;
+    const float FREQ1 = 0.2f;
+    const float FREQ2 = 0.4f;
+    const float FREQ3 = 0.7f;
+    const float FREQ4 = 1;
+    const float FREQ5 = 1.4f;
+
+    const int LIFE1 = 4;
+    const int LIFE2 = 7;
+    const int LIFE3 = 10;
+    const int LIFE4 = 15;
+    const int LIFE5 = 20;
+
+    private float life = 2;
 
     [Header("Atributes")]
 
 	private float range = 1.4f; //distancia entre hex i hex
-	private float FireRatio = 0.6f; //3 = 3s ? 
+	private float FireRatio = 0.1f; //3 = 3s ? 
 	public float FireCountdown = 0f;
 
 	[Header("Unity Setup Fields")]
@@ -30,8 +42,9 @@ public class SpraiScript : MonoBehaviour {
     int shootAnimation = Animator.StringToHash("ShootSprai");
 
     void Start(){
-			
-		InvokeRepeating ("UpdateTarget", 0f, 0.5f);
+
+        SetTurretAtributes();
+        InvokeRepeating ("UpdateTarget", 0f, 0.5f);
         anim = GetComponent<Animator>();
 
         GetComponentInChildren<SkinnedMeshRenderer>().material.color = SetColor(spraiColor);
@@ -40,6 +53,53 @@ public class SpraiScript : MonoBehaviour {
             return;
 
         //SetRadius();
+    }
+
+    void SetTurretAtributes()
+    {
+        int freq = PlayerPrefs.GetInt("Sprai_Freq");
+        int life = PlayerPrefs.GetInt("Sprai_Life");
+        switch (freq)
+        {
+            case 1:
+                FireRatio = FREQ1;
+                break;
+            case 2:
+                FireRatio = FREQ2;
+                break;
+            case 3:
+                FireRatio = FREQ3;
+                break;
+            case 4:
+                FireRatio = FREQ4;
+                break;
+            case 5:
+                FireRatio = FREQ5;
+                break;
+            default:
+                break;
+        }
+
+        switch (life)
+        {
+            case 1:
+                life = LIFE1;
+                break;
+            case 2:
+                life = LIFE2;
+                break;
+            case 3:
+                life = LIFE3;
+                break;
+            case 4:
+                life = LIFE4;
+                break;
+            case 5:
+                life = LIFE5;
+                break;
+            default:
+                break;
+        }
     }
 
     void SetRadius()
