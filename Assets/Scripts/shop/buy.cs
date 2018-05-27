@@ -1069,6 +1069,21 @@ public class buy : MonoBehaviour {
 
     public void activeSpray()
     {
+        lifeTub5.gameObject.SetActive(false);
+        lifeTub1.gameObject.SetActive(false);
+        lifeTub2.gameObject.SetActive(false);
+        lifeTub3.gameObject.SetActive(false);
+        lifeTub4.gameObject.SetActive(false);
+        freqTub1.gameObject.SetActive(false);
+        freqTub2.gameObject.SetActive(false);
+        freqTub3.gameObject.SetActive(false);
+        freqTub4.gameObject.SetActive(false);
+        freqTub5.gameObject.SetActive(false);
+        costTub1.gameObject.SetActive(false);
+        costTub2.gameObject.SetActive(false);
+        costTub3.gameObject.SetActive(false);
+        costTub4.gameObject.SetActive(false);
+        costTub5.gameObject.SetActive(false);
         sprayStats.gameObject.SetActive(true);
         tubStats.gameObject.SetActive(false);
     }
