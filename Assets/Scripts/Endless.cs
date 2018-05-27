@@ -89,7 +89,7 @@ public class endless : MonoBehaviour {
         instance = this;
         colorHudInstance = ColorHUD.instance;
 
-        StartCoroutine(Endless());
+        //StartCoroutine(Endless());
  
         firstSpawnPoint = 0;
         lastSpawnPoint = Map.height;
@@ -270,7 +270,7 @@ public class endless : MonoBehaviour {
 
     }
 
-    IEnumerator Endless()
+ /*   IEnumerator Endless()
     {
         Minion minion;
         minion.colorComplexity = 0;
@@ -294,7 +294,7 @@ public class endless : MonoBehaviour {
             minion.speed = 0.7f;
             Debug.Log("2");
         }
-    }
+    }*/
 
 }
 

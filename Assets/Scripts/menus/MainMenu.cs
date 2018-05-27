@@ -23,8 +23,37 @@ public class MainMenu : MonoBehaviour {
     IEnumerator LoadAsynchronously(int SceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(SceneIndex);
+        if (SceneIndex == 0 || SceneIndex > 30)
+        {
+            FindObjectOfType<AudioManager>().Stop("Tema2");
+            FindObjectOfType<AudioManager>().Stop("Bosc");
+            FindObjectOfType<AudioManager>().Stop("BoscMusic");
+            FindObjectOfType<AudioManager>().Stop("ArticMusic");
+            FindObjectOfType<AudioManager>().Stop("VentArtic");
+            FindObjectOfType<AudioManager>().Play("Tema1");
+        }
 
-        loadingScreen.SetActive(true);
+        else if (SceneIndex > 0 && SceneIndex < 11)
+        {
+            FindObjectOfType<AudioManager>().Stop("Tema1");
+            FindObjectOfType<AudioManager>().Play("Tema2");
+        }
+
+        else if (SceneIndex > 10 && SceneIndex < 21)
+        {
+            FindObjectOfType<AudioManager>().Stop("Tema1");
+            FindObjectOfType<AudioManager>().Play("Bosc");
+            FindObjectOfType<AudioManager>().Play("BoscMusic");
+        }
+
+        else if (SceneIndex > 20 && SceneIndex < 31)
+        {
+            FindObjectOfType<AudioManager>().Stop("Tema1");
+            FindObjectOfType<AudioManager>().Play("VentArtic");
+            FindObjectOfType<AudioManager>().Play("ArticMusic");
+        }
+
+            loadingScreen.SetActive(true);
 
         while (!operation.isDone)
         {
