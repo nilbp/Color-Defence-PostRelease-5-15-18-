@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
-    public static int darkPigment;
-    public static int comboBonus;
+    public static int darkPigment = 0;
+    public static int comboBonus = 0;
     public int gradeBonus;
+
+    public Text comboBonusText;
+    public Text gradeBonusText;
+    public Text minionAbsorvedText;
+    public Text totalDarkPigmentText;
 
     public int levelNumber;
     public static int value; //aquesta variable s'anirà restant des de MouseManager i des de BuildManager
@@ -16,7 +21,7 @@ public class TutorialManager : MonoBehaviour
     public static bool gameOver;
     public GameObject gameoverPanel;
 
-    public GameObject endPanel;
+    public GameObject levelPassedPanel;
 
     private ColorHUD colorHudInstance;
 
@@ -58,7 +63,7 @@ public class TutorialManager : MonoBehaviour
             if (numWaves == 0)
             {
                 SetLevelMark();
-                endPanel.SetActive(true);
+                SetLevelPanelAtributes();
                 return;
             }
 
@@ -66,6 +71,18 @@ public class TutorialManager : MonoBehaviour
             LoadNext();
         }
         //GameOver();
+    }
+
+    void SetLevelPanelAtributes()
+    {
+        levelPassedPanel.SetActive(true);
+        minionAbsorvedText.text =   "MINION ABSORVED BONUS  " + darkPigment;
+        comboBonusText.text =       "COMBO BONUS            " + comboBonus;
+        gradeBonusText.text =       "GRADE BONUS            " + gradeBonus;
+
+        totalDarkPigmentText.text = "TOTAL                  " + (darkPigment + comboBonus + gradeBonus);
+
+        PlayerPrefs.SetInt("Money", (darkPigment + comboBonus + gradeBonus));
     }
 
     void SetLevelMark() //Guarda la nova mark score i el player prefs amb el nom del nivell
