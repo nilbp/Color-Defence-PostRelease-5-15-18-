@@ -11,35 +11,41 @@ public class buy : MonoBehaviour {
 
     public Text moneyText;
 
-    bool freqtub1;
-    bool freqtub2;
-    bool freqtub3;
-    bool freqtub4;
+    bool freqtub1=false;
+    bool freqtub2 = false;
+    bool freqtub3 = false;
+    bool freqtub4 = false;
+    bool freqtub5 = false;
 
-    bool costtub1;
-    bool costtub2;
-    bool costtub3;
-    bool costtub4;
+    bool costtub1 = false;
+    bool costtub2 = false;
+    bool costtub3 = false;
+    bool costtub4 = false;
+    bool costtub5 = false;
 
-    bool lifetub1;
-    bool lifetub2;
-    bool lifetub3;
-    bool lifetub4;
+    bool lifetub1 = false;
+    bool lifetub2 = false;
+    bool lifetub3 = false;
+    bool lifetub4 = false;
+    bool lifetub5 = false;
 
-    bool freqspray1;
-    bool freqspray2;
-    bool freqspray3;
-    bool freqspray4;
+    bool freqspray1 = false;
+    bool freqspray2 = false;
+    bool freqspray3 = false;
+    bool freqspray4 = false;
+    bool freqspray5 = false;
 
-    bool costspray1;
-    bool costspray2;
-    bool costspray3;
-    bool costspray4;
+    bool costspray1 = false;
+    bool costspray2 = false;
+    bool costspray3 = false;
+    bool costspray4 = false;
+    bool costspray5 = false;
 
-    bool lifespray1;
-    bool lifespray2;
-    bool lifespray3;
-    bool lifespray4;
+    bool lifespray1 = false;
+    bool lifespray2 = false;
+    bool lifespray3 = false;
+    bool lifespray4 = false;
+    bool lifespray5 = false;
 
     public Image freqImage;
     public Image costImage;
@@ -81,6 +87,42 @@ public class buy : MonoBehaviour {
     public GameObject lifeSpray4;
     public GameObject lifeSpray5;
 
+    public GameObject PalitofreqTub1;
+    public GameObject PalitofreqTub2;
+    public GameObject PalitofreqTub3;
+    public GameObject PalitofreqTub4;
+    public GameObject PalitofreqTub5;
+
+    public GameObject PalitocostTub1;
+    public GameObject PalitocostTub2;
+    public GameObject PalitocostTub3;
+    public GameObject PalitocostTub4;
+    public GameObject PalitocostTub5;
+
+    public GameObject PalitolifeTub1;
+    public GameObject PalitolifeTub2;
+    public GameObject PalitolifeTub3;
+    public GameObject PalitolifeTub4;
+    public GameObject PalitolifeTub5;
+
+    public GameObject PalitofreqSpray1;
+    public GameObject PalitofreqSpray2;
+    public GameObject PalitofreqSpray3;
+    public GameObject PalitofreqSpray4;
+    public GameObject PalitofreqSpray5;
+
+    public GameObject PalitocostSpray1;
+    public GameObject PalitocostSpray2;
+    public GameObject PalitocostSpray3;
+    public GameObject PalitocostSpray4;
+    public GameObject PalitocostSpray5;
+
+    public GameObject PalitolifeSpray1;
+    public GameObject PalitolifeSpray2;
+    public GameObject PalitolifeSpray3;
+    public GameObject PalitolifeSpray4;
+    public GameObject PalitolifeSpray5;
+
     public GameObject sprayStats;
     public GameObject tubStats;
 
@@ -90,37 +132,8 @@ public class buy : MonoBehaviour {
 
     private void Start()
     {
-        money = PlayerPrefs.GetInt("Money");
-
-        freqtub1 = false;
-        freqtub2 = false;
-        freqtub3 = false;
-        freqtub4 = false;
-
-        costtub1 = false;
-        costtub2 = false;
-        costtub3 = false;
-        costtub4 = false;
-
-        lifetub1 = false;
-        lifetub2 = false;
-        lifetub3 = false;
-        lifetub4 = false;
-
-        freqspray1 = false;
-        freqspray2 = false;
-        freqspray3 = false;
-        freqspray4 = false;
-
-        costspray1 = false;
-        costspray2 = false;
-        costspray3 = false;
-        costspray4 = false;
-
-        lifespray1 = false;
-        lifespray2 = false;
-        lifespray3 = false;
-        lifespray4 = false;
+        //money = PlayerPrefs.GetInt("Money");
+        money = 10000000;
 
         sprayActive.interactable = true;
         tubActive.interactable = true;
@@ -136,7 +149,8 @@ public class buy : MonoBehaviour {
         if (money > 100)
         {
             freqtub1 = true;
-            //augment freq1
+            PalitofreqTub1.gameObject.SetActive(true);
+            Debug.Log("freq1");
             PlayerPrefs.SetInt("Tub_Freq", 1);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 100);
             money -= 100;
@@ -148,7 +162,8 @@ public class buy : MonoBehaviour {
         if (freqtub1 && money > 200)
         {
             freqtub2 = true;
-            //augment freq2
+            freqtub1 = false;
+            PalitofreqTub2.gameObject.SetActive(true);
             Debug.Log("freq2");
             PlayerPrefs.SetInt("Tub_Freq", 2);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 200);
@@ -161,7 +176,8 @@ public class buy : MonoBehaviour {
         if (freqtub2 && money > 500)
         {
             freqtub3 = true;
-            //augment freq2
+            freqtub2 = false;
+            PalitofreqTub3.gameObject.SetActive(true);
             Debug.Log("freq3");
             PlayerPrefs.SetInt("Tub_Freq", 3);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 500);
@@ -175,7 +191,8 @@ public class buy : MonoBehaviour {
         if (freqtub3 && money > 1000)
         {
             freqtub4 = true;
-            //augment freq4
+            freqtub3 = false;
+            PalitofreqTub4.gameObject.SetActive(true);
             Debug.Log("freq4");
             PlayerPrefs.SetInt("Tub_Freq", 4);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 1000);
@@ -188,7 +205,9 @@ public class buy : MonoBehaviour {
     {
         if (freqtub4 && money > 2000)
         {
-            //augment freq5
+            freqtub5 = true;
+            freqtub4 = false;
+            PalitofreqTub5.gameObject.SetActive(true);
             Debug.Log("freq5");
             PlayerPrefs.SetInt("Tub_Freq", 5);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 2000);
@@ -250,7 +269,7 @@ public class buy : MonoBehaviour {
         if (money > 100)
         {
             costtub1 = true;
-            //augment cost1
+            PalitocostTub1.gameObject.SetActive(true);
             Debug.Log("cost1");
             PlayerPrefs.SetInt("Tub_Cost", 1);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 100);
@@ -263,7 +282,8 @@ public class buy : MonoBehaviour {
         if (costtub1 && money > 200)
         {
             costtub2 = true;
-            //augment cost2
+            costtub1 = false;
+            PalitocostTub2.gameObject.SetActive(true);
             Debug.Log("cost2");
             PlayerPrefs.SetInt("Tub_Cost", 2);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 200);
@@ -276,7 +296,8 @@ public class buy : MonoBehaviour {
         if (costtub2 && money > 500)
         {
             costtub3 = true;
-            //augment cost3
+            costtub2 = false;
+            PalitocostTub3.gameObject.SetActive(true);
             Debug.Log("cost3");
             PlayerPrefs.SetInt("Tub_Cost", 3);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 500);
@@ -289,7 +310,8 @@ public class buy : MonoBehaviour {
         if (costtub3 && money > 1000)
         {
             costtub4 = true;
-            //augment cost4
+            costtub3 = false;
+            PalitocostTub4.gameObject.SetActive(true);
             Debug.Log("cost4");
             PlayerPrefs.SetInt("Tub_Cost", 4);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 1000);
@@ -301,7 +323,9 @@ public class buy : MonoBehaviour {
     {
         if (costtub4 && money > 2000)
         {
-            //augmentcost5
+            costtub5 = true;
+            costtub4 = false;
+            PalitocostTub5.gameObject.SetActive(true);
             Debug.Log("cost5");
             PlayerPrefs.SetInt("Tub_Cost", 5);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 2000);
@@ -364,7 +388,7 @@ public class buy : MonoBehaviour {
         if (money > 100)
         {
             lifetub1 = true;
-            //augment life1
+            PalitolifeTub1.gameObject.SetActive(true);
             Debug.Log("life1");
 
             PlayerPrefs.SetInt("Tub_Life", 1);
@@ -378,7 +402,8 @@ public class buy : MonoBehaviour {
         if (lifetub1 && money > 200)
         {
             lifetub2 = true;
-            //augment life2
+            lifetub1 = false;
+            PalitolifeTub2.gameObject.SetActive(true);
             Debug.Log("life2");
             PlayerPrefs.SetInt("Tub_Life", 2);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 200);
@@ -391,7 +416,8 @@ public class buy : MonoBehaviour {
         if (lifetub2 && money > 500)
         {
             lifetub3 = true;
-            //augment life3
+            lifetub2 = false;
+            PalitolifeTub3.gameObject.SetActive(true);
             Debug.Log("life3");
             PlayerPrefs.SetInt("Tub_Life", 3);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 500);
@@ -404,7 +430,8 @@ public class buy : MonoBehaviour {
         if (lifetub3 && money > 1000)
         {
             lifetub4 = true;
-            //augment life4
+            lifetub3 = false;
+            PalitolifeTub4.gameObject.SetActive(true);
             Debug.Log("life4");
             PlayerPrefs.SetInt("Tub_Life", 4);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 1000);
@@ -416,7 +443,9 @@ public class buy : MonoBehaviour {
     {
         if (lifetub4 && money > 2000)
         {
-            //augment life5
+            lifetub5 = true;
+            lifetub4 = false;
+            PalitolifeTub1.gameObject.SetActive(true);
             Debug.Log("life5");
             PlayerPrefs.SetInt("Tub_Life", 5);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 2000);
@@ -479,7 +508,7 @@ public class buy : MonoBehaviour {
         if (money > 100)
         {
             freqspray1 = true;
-            //augment freq1
+            PalitofreqSpray1.gameObject.SetActive(true);
             Debug.Log("freq1");
             PlayerPrefs.SetInt("Sprai_Freq", 1);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 100);
@@ -492,7 +521,8 @@ public class buy : MonoBehaviour {
         if (freqspray1 && money > 200)
         {
             freqspray2 = true;
-            //augment freq2
+            freqspray1 = false;
+            PalitofreqSpray2.gameObject.SetActive(true);
             Debug.Log("freq2");
             PlayerPrefs.SetInt("Sprai_Freq", 2);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 200);
@@ -505,7 +535,8 @@ public class buy : MonoBehaviour {
         if (freqspray2 && money > 500)
         {
             freqspray3 = true;
-            //augment freq2
+            freqspray2 = false;
+            PalitofreqSpray3.gameObject.SetActive(true);
             Debug.Log("freq3");
             PlayerPrefs.SetInt("Sprai_Freq", 3);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 500);
@@ -518,7 +549,8 @@ public class buy : MonoBehaviour {
         if (freqspray3 && money > 1000)
         {
             freqspray4 = true;
-            //augment freq4
+            freqspray3 = false;
+            PalitofreqSpray4.gameObject.SetActive(true);
             Debug.Log("freq4");
             PlayerPrefs.SetInt("Sprai_Freq", 4);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 1000);
@@ -530,7 +562,9 @@ public class buy : MonoBehaviour {
     {
         if (freqspray4 && money > 2000)
         {
-            //augment freq5
+            freqspray5 = true;
+            freqspray4 = false;
+            PalitofreqSpray5.gameObject.SetActive(true);
             Debug.Log("freq5");
             PlayerPrefs.SetInt("Sprai_Freq", 5);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 2000);
@@ -592,7 +626,7 @@ public class buy : MonoBehaviour {
         if (money > 100)
         {
             costspray1 = true;
-            //augment cost1
+            PalitocostSpray1.gameObject.SetActive(true);
             Debug.Log("cost1");
             PlayerPrefs.SetInt("Sprai_Cost", 1);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 100);
@@ -605,7 +639,8 @@ public class buy : MonoBehaviour {
         if (costspray1 && money > 200)
         {
             costspray2 = true;
-            //augment cost2
+            costspray1 = false;
+            PalitocostSpray2.gameObject.SetActive(true);
             Debug.Log("cost2");
             PlayerPrefs.SetInt("Sprai_Cost", 2);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 200);
@@ -618,7 +653,8 @@ public class buy : MonoBehaviour {
         if (costspray2 && money > 500)
         {
             costspray3 = true;
-            //augment cost3
+            costspray2 = false;
+            PalitocostSpray3.gameObject.SetActive(true);
             Debug.Log("cost3");
             PlayerPrefs.SetInt("Sprai_Cost", 3);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 500);
@@ -631,7 +667,8 @@ public class buy : MonoBehaviour {
         if (costspray3 && money > 1000)
         {
             costspray4 = true;
-            //augment cost4
+            costspray3 = false;
+            PalitocostSpray4.gameObject.SetActive(true);
             Debug.Log("cost4");
             PlayerPrefs.SetInt("Sprai_Cost", 4);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 1000);
@@ -643,7 +680,9 @@ public class buy : MonoBehaviour {
     {
         if (costspray4 && money > 2000)
         {
-            //augmentcost5
+            costspray5 = true;
+            costspray4 = false;
+            PalitocostSpray5.gameObject.SetActive(true);
             Debug.Log("cost5");
             PlayerPrefs.SetInt("Sprai_Cost", 5);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 2000);
@@ -705,7 +744,7 @@ public class buy : MonoBehaviour {
         if (money > 100)
         {
             lifespray1 = true;
-            //augment life1
+            PalitolifeSpray1.gameObject.SetActive(true);
             Debug.Log("life1");
             PlayerPrefs.SetInt("Sprai_Life", 1);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 100);
@@ -718,7 +757,8 @@ public class buy : MonoBehaviour {
         if (lifespray1 && money > 200)
         {
             lifespray2 = true;
-            //augment life2
+            lifespray1 = false;
+            PalitolifeSpray2.gameObject.SetActive(true);
             Debug.Log("life2");
             PlayerPrefs.SetInt("Sprai_Life", 2);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 200);
@@ -731,7 +771,8 @@ public class buy : MonoBehaviour {
         if (lifespray2 && money > 500)
         {
             lifespray3 = true;
-            //augment life3
+            lifespray2 = false;
+            PalitolifeSpray3.gameObject.SetActive(true);
             Debug.Log("life3");
             PlayerPrefs.SetInt("Sprai_Life", 3);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 500);
@@ -744,7 +785,8 @@ public class buy : MonoBehaviour {
         if (lifespray3 && money > 1000)
         {
             lifespray4 = true;
-            //augment life4
+            lifespray3 = false;
+            PalitolifeSpray4.gameObject.SetActive(true);
             Debug.Log("life4");
             PlayerPrefs.SetInt("Sprai_Life", 4);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 1000);
@@ -756,7 +798,9 @@ public class buy : MonoBehaviour {
     {
         if (lifespray4 && money > 2000)
         {
-            //augment life5
+            lifespray5 = true;
+            lifespray4 = false;
+            PalitolifeSpray1.gameObject.SetActive(true);
             Debug.Log("life5");
             PlayerPrefs.SetInt("Sprai_Life", 5);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 2000);
@@ -832,6 +876,127 @@ public class buy : MonoBehaviour {
         costSpray3.gameObject.SetActive(false);
         costSpray4.gameObject.SetActive(false);
         costSpray5.gameObject.SetActive(false);
+
+        PalitofreqSpray1.gameObject.SetActive(false);
+        PalitofreqSpray2.gameObject.SetActive(false);
+        PalitofreqSpray3.gameObject.SetActive(false);
+        PalitofreqSpray4.gameObject.SetActive(false);
+        PalitofreqSpray5.gameObject.SetActive(false);
+
+        PalitocostSpray1.gameObject.SetActive(false);
+        PalitocostSpray2.gameObject.SetActive(false);
+        PalitocostSpray3.gameObject.SetActive(false);
+        PalitocostSpray4.gameObject.SetActive(false);
+        PalitocostSpray5.gameObject.SetActive(false);
+
+        PalitolifeSpray1.gameObject.SetActive(false);
+        PalitolifeSpray2.gameObject.SetActive(false);
+        PalitolifeSpray3.gameObject.SetActive(false);
+        PalitolifeSpray4.gameObject.SetActive(false);
+        PalitolifeSpray5.gameObject.SetActive(false);
+    }
+
+    public void activetubFreq()
+    {
+        if (freqtub1 == true)
+        {
+            PalitofreqTub1.gameObject.SetActive(true);
+        }
+        else if (freqtub2 == true)
+        {
+            PalitofreqTub1.gameObject.SetActive(true);
+            PalitofreqTub2.gameObject.SetActive(true);
+        }
+        else if (freqtub3 == true)
+        {
+            PalitofreqTub1.gameObject.SetActive(true);
+            PalitofreqTub2.gameObject.SetActive(true);
+            PalitofreqTub3.gameObject.SetActive(true);
+        }
+        else if (freqtub4 == true)
+        {
+            PalitofreqTub1.gameObject.SetActive(true);
+            PalitofreqTub2.gameObject.SetActive(true);
+            PalitofreqTub3.gameObject.SetActive(true);
+            PalitofreqTub4.gameObject.SetActive(true);
+        }
+        else if (freqtub5 == true)
+        {
+            PalitofreqTub1.gameObject.SetActive(true);
+            PalitofreqTub2.gameObject.SetActive(true);
+            PalitofreqTub3.gameObject.SetActive(true);
+            PalitofreqTub4.gameObject.SetActive(true);
+            PalitofreqTub5.gameObject.SetActive(true);
+        }
+    }
+    public void activetubCost()
+    {
+        
+        if (costtub1 == true)
+        {
+            PalitocostTub1.gameObject.SetActive(true);
+        }
+        else if (costtub2 == true)
+        {
+            PalitocostTub1.gameObject.SetActive(true);
+            PalitocostTub2.gameObject.SetActive(true);
+        }
+        else if (costtub3 == true)
+        {
+            PalitocostTub1.gameObject.SetActive(true);
+            PalitocostTub2.gameObject.SetActive(true);
+            PalitocostTub3.gameObject.SetActive(true);
+        }
+        else if (costtub4 == true)
+        {
+            PalitocostTub1.gameObject.SetActive(true);
+            PalitocostTub2.gameObject.SetActive(true);
+            PalitocostTub3.gameObject.SetActive(true);
+            PalitocostTub4.gameObject.SetActive(true);
+        }
+        else if (costtub5 == true)
+        {
+            PalitocostTub1.gameObject.SetActive(true);
+            PalitocostTub2.gameObject.SetActive(true);
+            PalitocostTub3.gameObject.SetActive(true);
+            PalitocostTub4.gameObject.SetActive(true);
+            PalitocostTub5.gameObject.SetActive(true);
+        }
+    }
+
+   public void activetubLife()
+    {
+        
+        if (lifetub1 == true)
+        {
+            PalitolifeTub1.gameObject.SetActive(true);
+        }
+        else if (lifetub2 == true)
+        {
+            PalitolifeTub1.gameObject.SetActive(true);
+            PalitolifeTub2.gameObject.SetActive(true);
+        }
+        else if (lifetub3 == true)
+        {
+            PalitolifeTub1.gameObject.SetActive(true);
+            PalitolifeTub2.gameObject.SetActive(true);
+            PalitolifeTub3.gameObject.SetActive(true);
+        }
+        else if (lifetub4 == true)
+        {
+            PalitolifeTub1.gameObject.SetActive(true);
+            PalitolifeTub2.gameObject.SetActive(true);
+            PalitolifeTub3.gameObject.SetActive(true);
+            PalitolifeTub4.gameObject.SetActive(true);
+        }
+        else if (lifetub5 == true)
+        {
+            PalitolifeTub1.gameObject.SetActive(true);
+            PalitolifeTub2.gameObject.SetActive(true);
+            PalitolifeTub3.gameObject.SetActive(true);
+            PalitolifeTub4.gameObject.SetActive(true);
+            PalitolifeTub5.gameObject.SetActive(true);
+        }
     }
 
     public void activeSpray()
@@ -851,8 +1016,129 @@ public class buy : MonoBehaviour {
         costTub3.gameObject.SetActive(false);
         costTub4.gameObject.SetActive(false);
         costTub5.gameObject.SetActive(false);
+
         sprayStats.gameObject.SetActive(true);
         tubStats.gameObject.SetActive(false);
+
+        PalitofreqTub1.gameObject.SetActive(false);
+        PalitofreqTub2.gameObject.SetActive(false);
+        PalitofreqTub3.gameObject.SetActive(false);
+        PalitofreqTub4.gameObject.SetActive(false);
+        PalitofreqTub5.gameObject.SetActive(false);
+
+        PalitocostTub1.gameObject.SetActive(false);
+        PalitocostTub2.gameObject.SetActive(false);
+        PalitocostTub3.gameObject.SetActive(false);
+        PalitocostTub4.gameObject.SetActive(false);
+        PalitocostTub5.gameObject.SetActive(false);
+
+        PalitolifeTub1.gameObject.SetActive(false);
+        PalitolifeTub2.gameObject.SetActive(false);
+        PalitolifeTub3.gameObject.SetActive(false);
+        PalitolifeTub4.gameObject.SetActive(false);
+        PalitolifeTub5.gameObject.SetActive(false);
+    }
+
+    public void activesprayFreq()
+    {
+        if (freqspray1 == true)
+        {
+            PalitofreqSpray1.gameObject.SetActive(true);
+        }
+        else if (freqspray2 == true)
+        {
+            PalitofreqSpray1.gameObject.SetActive(true);
+            PalitofreqSpray2.gameObject.SetActive(true);
+        }
+        else if (freqspray3 == true)
+        {
+            PalitofreqSpray1.gameObject.SetActive(true);
+            PalitofreqSpray2.gameObject.SetActive(true);
+            PalitofreqSpray3.gameObject.SetActive(true);
+        }
+        else if (freqspray4 == true)
+        {
+            PalitofreqSpray1.gameObject.SetActive(true);
+            PalitofreqSpray2.gameObject.SetActive(true);
+            PalitofreqSpray3.gameObject.SetActive(true);
+            PalitofreqSpray4.gameObject.SetActive(true);
+        }
+        else if (freqspray5 == true)
+        {
+            PalitofreqSpray1.gameObject.SetActive(true);
+            PalitofreqSpray2.gameObject.SetActive(true);
+            PalitofreqSpray3.gameObject.SetActive(true);
+            PalitofreqSpray4.gameObject.SetActive(true);
+            PalitofreqSpray5.gameObject.SetActive(true);
+        }
+    }
+
+    public void activesprayCost()
+    {
+        if (costspray1 == true)
+        {
+            PalitocostSpray1.gameObject.SetActive(true);
+        }
+        else if (costspray2 == true)
+        {
+            PalitocostSpray1.gameObject.SetActive(true);
+            PalitocostSpray2.gameObject.SetActive(true);
+        }
+        else if (costspray3 == true)
+        {
+            PalitocostSpray1.gameObject.SetActive(true);
+            PalitocostSpray2.gameObject.SetActive(true);
+            PalitocostSpray3.gameObject.SetActive(true);
+        }
+        else if (costspray4 == true)
+        {
+            PalitocostSpray1.gameObject.SetActive(true);
+            PalitocostSpray2.gameObject.SetActive(true);
+            PalitocostSpray3.gameObject.SetActive(true);
+            PalitocostSpray4.gameObject.SetActive(true);
+        }
+        else if (costspray5 == true)
+        {
+            PalitocostSpray1.gameObject.SetActive(true);
+            PalitocostSpray2.gameObject.SetActive(true);
+            PalitocostSpray3.gameObject.SetActive(true);
+            PalitocostSpray4.gameObject.SetActive(true);
+            PalitocostSpray5.gameObject.SetActive(true);
+        }
+    }
+
+    public void activesprayLife()
+    {
+        if (lifespray1 == true)
+        {
+            PalitolifeSpray1.gameObject.SetActive(true);
+        }
+        else if (lifespray2 == true)
+        {
+           PalitolifeSpray1.gameObject.SetActive(true);
+            PalitolifeSpray2.gameObject.SetActive(true);
+        }
+        else if (lifespray3 == true)
+        {
+           PalitolifeSpray1.gameObject.SetActive(true);
+            PalitolifeSpray2.gameObject.SetActive(true);
+            PalitolifeSpray3.gameObject.SetActive(true);
+        }
+        else if (lifespray4 == true)
+        {
+            PalitolifeSpray1.gameObject.SetActive(true);
+            PalitolifeSpray2.gameObject.SetActive(true);
+            PalitolifeSpray3.gameObject.SetActive(true);
+            PalitolifeSpray4.gameObject.SetActive(true);
+        }
+        else if (lifespray5 == true)
+        {
+            PalitolifeSpray1.gameObject.SetActive(true);
+            PalitolifeSpray2.gameObject.SetActive(true);
+            PalitolifeSpray3.gameObject.SetActive(true);
+            PalitolifeSpray4.gameObject.SetActive(true);
+            PalitolifeSpray5.gameObject.SetActive(true);
+        }
     }
 
 }

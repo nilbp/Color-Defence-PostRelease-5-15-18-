@@ -11,7 +11,7 @@ public class Advert : MonoBehaviour
         {
             Advertisement.Show("", new ShowOptions() { resultCallback = HandleShowResult });
         }
-        }
+    }
 
     private void HandleShowResult(ShowResult result)
     {
@@ -24,7 +24,6 @@ public class Advert : MonoBehaviour
         else if (result == ShowResult.Skipped)
         {
             Debug.LogWarning("Video was skipped - Do NOT reward the player");
-
         }
         else if (result == ShowResult.Failed)
         {

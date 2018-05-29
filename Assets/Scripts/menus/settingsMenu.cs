@@ -8,6 +8,10 @@ public class settingsMenu : MonoBehaviour {
 
 	public AudioMixer audioMixer;
 
+    public Slider musicSlider;
+
+    public AudioSource music;
+
 	public Dropdown resolutionDropdown;
 
 	Resolution[] resolutions;
@@ -59,4 +63,9 @@ public class settingsMenu : MonoBehaviour {
 		Resolution resolution = resolutions [resolutionIndex];
 		Screen.SetResolution (resolution.width, resolution.height, Screen.fullScreen);
 	}
+
+    void Update()
+    {
+        music.volume = musicSlider.value;
+    }
 }
