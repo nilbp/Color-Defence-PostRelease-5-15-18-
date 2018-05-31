@@ -18,7 +18,8 @@ public class Torret_HUD : MonoBehaviour {
     void Start()
     {
         buildManager = BuildManager.instance;
-        tub.costText.text = "" + tub.cost;
+
+        tub.costText.text   = "" + tub.cost;
         sprai.costText.text = "" + sprai.cost;
     }
 

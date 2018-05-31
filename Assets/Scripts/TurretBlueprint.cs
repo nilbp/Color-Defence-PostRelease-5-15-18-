@@ -17,7 +17,7 @@ public class TurretBlueprint{
     public void IncrementNumberOfTurrets()
     {
        
-        cost += numberOfThisTurrets * incrementValue;
+        cost += numberOfThisTurrets * (incrementValue-PlayerPrefs.GetInt("Sprai_Cost"));
 
         numberOfThisTurrets++;
         costText.text = "" + cost;

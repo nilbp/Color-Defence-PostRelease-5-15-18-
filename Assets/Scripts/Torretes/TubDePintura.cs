@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class TubDePintura : MonoBehaviour {
 
-     const float FREQ1 = 0.2f;
-    const float FREQ2 = 0.4f;
-    const float FREQ3 = 0.7f;
-    const float FREQ4 = 1;
-    const float FREQ5 = 1.4f;
+    const float FREQ1 = 0.3f;
+    const float FREQ2 = 0.7f;
+    const float FREQ3 = 1.2f;
+    const float FREQ4 = 1.9f;
+    const float FREQ5 = 3f;
 
     const int LIFE1 = 4;
     const int LIFE2 = 7;
     const int LIFE3 = 10;
     const int LIFE4 = 15;
     const int LIFE5 = 20;
-
 
     [Header("Atributes")]
 
@@ -61,23 +60,33 @@ public class TubDePintura : MonoBehaviour {
     void SetTurretAtributes()
     {
         int freq = PlayerPrefs.GetInt("Tub_Freq");
-        int life = PlayerPrefs.GetInt("Tub_Life"); 
+        int life = PlayerPrefs.GetInt("Tub_Life");
+
         switch (freq)
         {
             case 1:
                 FireRatio = FREQ1;
+                Debug.Log("freq1");
                 break;
             case 2:
                 FireRatio = FREQ2;
+                Debug.Log("freq2");
+
                 break;
             case 3:
                 FireRatio = FREQ3;
+                Debug.Log("freq3");
+
                 break;
             case 4:
                 FireRatio = FREQ4;
+                Debug.Log("freq4");
+
                 break;
             case 5:
                 FireRatio = FREQ5;
+                Debug.Log("freq5");
+
                 break;
             default:
                 break;
@@ -87,18 +96,28 @@ public class TubDePintura : MonoBehaviour {
         {
             case 1:
                 life = LIFE1;
+                Debug.Log("freq1");
+
                 break;
             case 2:
                 life = LIFE2;
+                Debug.Log("freq2");
+
                 break;
             case 3:
                 life = LIFE3;
+                Debug.Log("freq3");
+
                 break;
             case 4:
                 life = LIFE4;
+                Debug.Log("freq4");
+
                 break;
             case 5:
                 life = LIFE5;
+                Debug.Log("freq5");
+
                 break;
             default:
                 break;
