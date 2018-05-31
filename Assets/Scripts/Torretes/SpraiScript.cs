@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SpraiScript : MonoBehaviour {
 
-    const float FREQ1 = 0.2f;
-    const float FREQ2 = 0.4f;
-    const float FREQ3 = 0.7f;
-    const float FREQ4 = 1;
-    const float FREQ5 = 1.4f;
+    const float FREQ1 = 0.3f;
+    const float FREQ2 = 0.7f;
+    const float FREQ3 = 1.2f;
+    const float FREQ4 = 1.9f;
+    const float FREQ5 = 3f;
 
     const int LIFE1 = 4;
     const int LIFE2 = 7;

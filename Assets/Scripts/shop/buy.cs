@@ -132,8 +132,11 @@ public class buy : MonoBehaviour {
 
     private void Start()
     {
-        //money = PlayerPrefs.GetInt("Money");
-        money = 10000000;
+        
+        //PlayerPrefs.SetInt("Money", 0);
+
+        money = PlayerPrefs.GetInt("Money");
+        money = 0;
 
         sprayActive.interactable = true;
         tubActive.interactable = true;
