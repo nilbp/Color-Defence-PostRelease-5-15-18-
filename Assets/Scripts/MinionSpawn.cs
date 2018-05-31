@@ -198,10 +198,7 @@ public class MinionSpawn : MonoBehaviour
                 value += (waves[i].minion[j].cyanQuantity + waves[i].minion[j].magentaQuantity + waves[i].minion[j].yellowQuantity);
             }
         TutorialManager.value = (value * 15) + START_PIGMENT; //15 és els diners que et dona cada component quan mates el minion 
-        GetComponent<TutorialManager>().levelNumber = levelNumber + 1;
-
-        Debug.Log(TutorialManager.value);
-        
+        GetComponent<TutorialManager>().levelNumber = levelNumber + 1;        
     }
 
     int RandomInt(int from, int to)
