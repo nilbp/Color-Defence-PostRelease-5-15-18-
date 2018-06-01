@@ -9,7 +9,7 @@ public class Advert : MonoBehaviour
     {
         if (Advertisement.IsReady())
         {
-            Advertisement.Show("", new ShowOptions() { resultCallback = HandleShowResult });
+            Advertisement.Show("rewardedVideo", new ShowOptions() { resultCallback = HandleShowResult });
         }
     }
 
@@ -18,7 +18,7 @@ public class Advert : MonoBehaviour
         if (result == ShowResult.Finished)
         {
             Debug.Log("Video completed - Offer a reward to the player");
-            // Reward your player here.
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") + 60);
 
         }
         else if (result == ShowResult.Skipped)
