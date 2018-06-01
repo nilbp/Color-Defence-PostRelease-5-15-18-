@@ -51,6 +51,9 @@ public class buy : MonoBehaviour {
     public Image costImage;
     public Image lifeImage;
 
+    public Image tubImage;
+    public Image sprayImage;
+
     public GameObject freqTub1;
     public GameObject freqTub2;
     public GameObject freqTub3;
@@ -880,6 +883,9 @@ public class buy : MonoBehaviour {
         costSpray4.gameObject.SetActive(false);
         costSpray5.gameObject.SetActive(false);
 
+        sprayImage.gameObject.SetActive(false);
+        tubImage.gameObject.SetActive(true);
+
         PalitofreqSpray1.gameObject.SetActive(false);
         PalitofreqSpray2.gameObject.SetActive(false);
         PalitofreqSpray3.gameObject.SetActive(false);
@@ -1019,6 +1025,9 @@ public class buy : MonoBehaviour {
         costTub3.gameObject.SetActive(false);
         costTub4.gameObject.SetActive(false);
         costTub5.gameObject.SetActive(false);
+
+        sprayImage.gameObject.SetActive(true);
+        tubImage.gameObject.SetActive(false);
 
         sprayStats.gameObject.SetActive(true);
         tubStats.gameObject.SetActive(false);
