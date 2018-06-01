@@ -29,7 +29,7 @@ public class expedientMenu : MonoBehaviour {
         Money = PlayerPrefs.GetInt("Money");
         MarkScore = PlayerPrefs.GetInt("MarkScore");
 
-        darkPigment.text = ""+Money;
+        darkPigment.text = "" + Money;
         markScore.text = "" + MarkScore;
 
     }
