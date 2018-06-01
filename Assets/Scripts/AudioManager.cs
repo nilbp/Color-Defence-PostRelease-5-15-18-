@@ -6,6 +6,8 @@ public class AudioManager : MonoBehaviour {
 
     public Sound[] sounds;
 
+    bool finished = false;
+
     public static AudioManager instance;
 
     void Awake() {
@@ -33,7 +35,7 @@ public class AudioManager : MonoBehaviour {
 
 	void Start()
 	{
-		Play("Tema1");
+            Play("Tema1");  
 	}
 
     public void Play(string name)

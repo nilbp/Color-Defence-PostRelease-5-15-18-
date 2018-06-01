@@ -66,6 +66,6 @@ public class settingsMenu : MonoBehaviour {
 
     void Update()
     {
-        music.volume = musicSlider.value;
+        //music.volume = musicSlider.value;
     }
 }

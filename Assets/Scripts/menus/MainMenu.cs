@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour {
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(SceneIndex);
         if (SceneIndex == 0 || SceneIndex > 30)
-        {
+        {      
             FindObjectOfType<AudioManager>().Stop("Tema2");
             FindObjectOfType<AudioManager>().Stop("Bosc");
             FindObjectOfType<AudioManager>().Stop("BoscMusic");
