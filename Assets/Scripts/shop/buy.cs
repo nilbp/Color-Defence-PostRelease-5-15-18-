@@ -11,7 +11,7 @@ public class buy : MonoBehaviour {
 
     public Text moneyText;
 
-    bool freqtub1=false;
+    bool freqtub1 = false;
     bool freqtub2 = false;
     bool freqtub3 = false;
     bool freqtub4 = false;
@@ -135,9 +135,8 @@ public class buy : MonoBehaviour {
 
     private void Start()
     {
-        
-        //PlayerPrefs.SetInt("Money", 0);
 
+        //PlayerPrefs.SetInt("Money", 0);
         money = PlayerPrefs.GetInt("Money");
         //money = 0;
         //PlayerPrefs.SetInt("Money", 0);
@@ -151,13 +150,27 @@ public class buy : MonoBehaviour {
         moneyText.text = "" + money;
     }
 
+    public static void SetBool(string name, bool booleanValue)
+    {
+        PlayerPrefs.SetInt(name, booleanValue ? 1 : 0);
+    }
+
+    void canviBool()
+    {
+        switch (PlayerPrefs.GetInt("Tub_Freq"))
+        {
+            case PlayerPrefs.GetInt("Tub_Freq") == 1:
+        }
+    }
+
     public void buytubF1()
     {
         if (money > 100)
         {
-            freqtub1 = true;
+            //PlayerPrefs.SetInt("freqtub1", true ? 1 : 0);
+            
             PalitofreqTub1.gameObject.SetActive(true);
-            Debug.Log("freq1");
+            Debug.Log("freq1"+freqtub1);
             PlayerPrefs.SetInt("Tub_Freq", 1);
             PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") - 100);
             money -= 100;
@@ -168,8 +181,8 @@ public class buy : MonoBehaviour {
     {
         if (freqtub1 && money > 200)
         {
-            freqtub2 = true;
-            freqtub1 = false;
+           // freqtub2 = true;
+            //freqtub1 = false;
             PalitofreqTub2.gameObject.SetActive(true);
             Debug.Log("freq2");
             PlayerPrefs.SetInt("Tub_Freq", 2);
@@ -182,8 +195,10 @@ public class buy : MonoBehaviour {
     {
         if (freqtub2 && money > 500)
         {
-            freqtub3 = true;
-            freqtub2 = false;
+            PlayerPrefs.SetInt("freqtub2", 0);
+            PlayerPrefs.SetInt("freqtub3", 1);
+            //freqtub3 = true;
+            //freqtub2 = false;
             PalitofreqTub3.gameObject.SetActive(true);
             Debug.Log("freq3");
             PlayerPrefs.SetInt("Tub_Freq", 3);
@@ -197,8 +212,10 @@ public class buy : MonoBehaviour {
     {
         if (freqtub3 && money > 1000)
         {
-            freqtub4 = true;
-            freqtub3 = false;
+            PlayerPrefs.SetInt("freqtub3", 0);
+            PlayerPrefs.SetInt("freqtub4", 1);
+         //   freqtub4 = true;
+           // freqtub3 = false;
             PalitofreqTub4.gameObject.SetActive(true);
             Debug.Log("freq4");
             PlayerPrefs.SetInt("Tub_Freq", 4);
@@ -212,8 +229,10 @@ public class buy : MonoBehaviour {
     {
         if (freqtub4 && money > 2000)
         {
-            freqtub5 = true;
-            freqtub4 = false;
+            PlayerPrefs.SetInt("freqtub4", 0);
+            PlayerPrefs.SetInt("freqtub5", 1);
+          //  freqtub5 = true;
+            //freqtub4 = false;
             PalitofreqTub5.gameObject.SetActive(true);
             Debug.Log("freq5");
             PlayerPrefs.SetInt("Tub_Freq", 5);
@@ -1153,5 +1172,4 @@ public class buy : MonoBehaviour {
             PalitolifeSpray5.gameObject.SetActive(true);
         }
     }
-
 }
