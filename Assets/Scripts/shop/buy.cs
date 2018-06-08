@@ -136,7 +136,7 @@ public class buy : MonoBehaviour {
     private void Start()
     {
         
-        //PlayerPrefs.SetInt("Money", 0);
+        PlayerPrefs.SetInt("Money", 5000);
 
         money = PlayerPrefs.GetInt("Money");
         //money = 0;

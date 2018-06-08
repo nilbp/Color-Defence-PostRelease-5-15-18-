@@ -72,7 +72,7 @@ public class monSelector : MonoBehaviour {
         }
 
         PlayerPrefs.SetInt("MarkScore", totalMark);
-        PlayerPrefs.SetInt("MarkScore", 160);
+        PlayerPrefs.SetInt("MarkScore", 120);
 
         worldMark.text = "TOTAL MARK: " + totalMark;
     }
